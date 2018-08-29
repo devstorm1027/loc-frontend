@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="container-fluid" style="">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="content">
+          <script src="https://www.google.com/jsapi"></script>
+          <h1 class="hidden-print">Analytics</h1>
+          <div class="clearfix visible-print-block"></div>
+
+          <style>
+            .nav-analytics.nav-tabs > li > a { padding: 8px 12px; }
+          </style>
+
+          <ul class="nav nav-tabs hidden-print nav-analytics">
+            <li class="active">
+              <a href="">Overview</a>
+            </li>
+            <li class="">
+              <a href="">Locations</a>
+            </li>
+            <li class="">
+              <a href="">By Site</a>
+            </li>
+            <li class="">
+              <a href="">Listing Status</a>
+            </li>
+            <li class="">
+              <a href="">Export</a>
+            </li>
+          </ul>
+          
+          <div class="row" id="group-headrow">
+            <div class="col-md-5">
+              <div class="well well-sm">
+                <h6>Total Reviews</h6>
+                <h2 style="font-size: 20px;">
+                  <span id='group-total-value'></span>&nbsp;
+                  </span>
+                </h2>
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="well well-sm">
+                <h6>Average Rating</h6>
+                <h2 style="font-size: 20px;">
+                  <div class="pull-left" id='group-single-review'></div>&nbsp;
+                  <span id='group-rating-value'></span>&nbsp;
+                  <span class="green" id='group-rating-range-value'> </span>
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <h3>Average Rating and Review Volume</h3>
+          <div class="well well-sm">
+            <div class="row">
+              <div class="col-md-6">
+                <h5>How are you rating over time?</h5>
+                <div id="avg_ratings_line" style="height: 200px;">
+                  <div class='canvas-container' style="position: relative;">
+                    <div class='chart-container'>
+                      <canvas id="group-rating-over-time" width="300" height="200"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <h5>How many reviews are you getting?</h5>
+                <div class='canvas-container' style="position: relative;">
+                  <div class='chart-container'>
+                    <canvas id="group-review-count" width="300" height="200"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <h5>How are your reviews distributed?</h5>
+                <div class='canvas-container' style="position: relative;">
+                  <div class='chart-container'>
+                    <canvas id="group-rating-Dist" width="300" height="200"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Average Rating Map</h3>
+              <div class="well well-sm">
+              <div id='site-map'></div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <!-- <div class="row">
+            <div class="col-md-6">
+              <div class="well well-sm">
+                <h4>Relative Performance</h4>
+                <div id="relative_performance_scatterplot" style="height: 300px;">
+                  
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <div class="col-md-6">
+              <div class="well well-sm">
+                <h4>Where did your reviews happen?</h4>
+                <div data-chart-url="/analytics/graph/directories?from=2017-01-07&amp;location_ids=26108&amp;to=2017-04-06" data-chart-pagination="null" data-chart-unsortable-cols="null" data-full-width="false" style="height: 300px;" id="chart7220435120282762" class="rasterize-ready">
+                  <div style="position: relative;">
+                    <div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
+                      <table>
+                        <thead>
+                          <tr><th>Directory</th><th>%</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr><td>Facebook</td><td>3</td></tr><tr><td>Yelp</td><td>1</td></tr><tr><td>Kudzu</td><td>0</td></tr><tr><td>Yellowpages</td><td>0</td></tr><tr><td>Yahoo</td><td>0</td></tr><tr><td>Google</td><td>0</td></tr><tr><td>Superpages</td><td>0</td></tr><tr><td>Citysearch</td><td>0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div aria-hidden="true" style="display: none; position: absolute; top: 310px; left: 496px; white-space: nowrap; font-family: Arial; font-size: 12px;">Yelp
+                    </div><div></div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          <!-- </div> -->
+
+          <!-- <h3>Group Comparison</h3>
+          <table class="table table-bordered table-striped comparison_table">
+            <thead>
+              <tr><th></th>
+              <th>Average Rating</th>
+              <th>Count</th>
+              <th>Promoter Score</th>
+              <th>Group Rank</th>
+              </tr>
+            </thead>
+            <tbody id='group-comparsion'>
+              <tr>
+                <td class="col_left">
+                  <strong>Group Average</strong>
+                </td>
+                <td>4.00</td>
+                <td>4.00</td>
+                <td>50</td>
+                <td>0.5</td>
+              </tr>
+              <tr>
+                <td class="col_left">
+                  <strong>Difference</strong>
+                </td>
+                <td><span class="text-muted">0.00</span></td>
+                <td><span class="text-muted">0.00</span></td>
+                <td><span class="text-muted">0.00</span></td>
+                <td><span class="red">-0.50</span></td>
+              </tr>
+            </tbody>
+          </table> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="js/{{ files['groups.js']['name'] }}" integrity="{{ files['groups.js']['hash'] }}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc5gDqKJviHuqVJns1ZWctawtpro_zH1U" async defer></script><script src="js/{{ files['httpobs.js']['name'] }}" integrity="{{ files['httpobs.js']['hash'] }}"></script>
+
+{% endblock %}

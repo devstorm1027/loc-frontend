@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="{{ AUTHOR }}">
+
+  <!-- favicon stuff -->
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="196x196" href="/images/favicons/favicon-196x196.png">
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- <title>{{ SITENAME }}</title> -->
+
+  <link rel="stylesheet" href="css/{{ files['bootstrap-3.3.7.min.css']['name'] }}" type="text/css" integrity="{{ files['bootstrap-3.3.7.min.css']['hash'] }}" />
+  <link rel="stylesheet" href="css/{{ files['httpobs.css']['name'] }}" type="text/css" integrity="{{ files['httpobs.css']['hash'] }}" />
+  <link rel="stylesheet" href="css/{{ files['home.css']['name'] }}" type="text/css" integrity="{{ files['home.css']['hash'] }}" />
+  <link rel="stylesheet" href="css/{{ files['auth.css']['name'] }}" type="text/css" integrity="{{ files['auth.css']['hash'] }}" />
+  <link rel="stylesheet" href="css/{{ files['analytics.css']['name'] }}" type="text/css" integrity="{{ files['analytics.css']['hash'] }}" />
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li id='home' style="display: none"><a href="/home.html">Home</a></li>
+          <li id='google-review' style="display: none"><a href="/google_review.html">Locations</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class=" dropdown" id='settings' style="display: none">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#">
+              <span class="glyphicon glyphicon-cog" style="font-size: 17px;">
+              </span> 
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li class="">
+                <a href="/users.html">Users</a>
+              </li>
+              <li class="">
+                <a href="/plans/current">Account Settings</a>
+              </li>
+            </ul>
+          </li>
+          <li id='sign-up'><a href="/signUp.html">Sign Up</a></li>
+          <li id='sign-in'><a href="/signIn.html">Sign In</a></li>
+          <li id='sign-out' style="display: none"><a>Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  <script src="js/{{ files['jquery-3.1.1.min.js']['name'] }}" integrity="{{ files['jquery-3.1.1.min.js']['hash'] }}"></script>
+  <script src="js/{{ files['bootstrap-3.3.7.min.js']['name'] }}" integrity="{{ files['bootstrap-3.3.7.min.js']['hash'] }}"></script>
+  <script src="js/{{ files['lodash-4.16.4.min.js']['name'] }}" integrity="{{ files['lodash-4.16.4.min.js']['hash'] }}"></script>
+  <script src="js/{{ files['moment-2.15.1.min.js']['name'] }}" integrity="{{ files['moment-2.15.1.min.js']['hash'] }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="container-fluid" style="">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="content">
+					<h1>New location</h1>
+					<div class="row">
+						<!-- <div class="col-md-12">
+							<div class="alert alert-warning" role="alert">
+								<p>To add or replace this location with another location, please contact us.</p>
+							</div>
+						</div> -->
+
+						<div class="col-md-6">
+							<form>
+								<div class="form-group">
+									<label for="location_duty">Name</label>	
+									<input class="form-control" placeholder='Crispy Bamboo Village Inc' type="text" id="location_name" required="required">
+								</div>
+								<div class="form-group">
+									<label for="location_address">Address</label>
+									<input class="form-control" placeholder='2526 Frederick Douglass Blvd' type="text" id="location_address" required="required">
+								</div>
+								<div class="form-group">
+									<label for="location_city">City</label>
+									<input class="form-control" placeholder='New York' type="text"
+									 id="location_city" required>
+								</div>
+								<div class="form-group">
+									<label for="location_state">State</label>
+									<input class="form-control" placeholder='United States' type="text" name="location[s	tate]" id="location_state" required />
+								</div>
+								<div class="form-group">
+									<label for="location_zip">Zip</label>
+									<input class="form-control" placeholder='10030' type="text" name="location[zip]" id="location_zip" required />
+								</div>
+								<div class="form-group search-back">
+									<button type="button" class="btn btn-success search-button" id="create_location">Search</button>
+								</div>
+								
+								<span class='back'>
+									<a href="/google_review.html">Back</a>
+								</span>
+							</form>
+						</div>
+						<!-- <div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-heading">Other Links</div>
+								<div class="panel-body">
+									<a href="/locations/26108/listings">Manage Listings for this Location</a>
+								</div>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="js/{{ files['new_location.js']['name'] }}" integrity="{{ files['new_location.js']['hash'] }}"></script>
+  <script src="js/{{ files['httpobs.js']['name'] }}" integrity="{{ files['httpobs.js']['hash'] }}"></script>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+.selectedStar{
+  position: relative;
+  display: inline-block;
+  padding: 5px 10px;
+  line-height: 1.5;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+.text-muted {
+  color: #777777;
+}
+
+.text-center {
+  text-align: center;
+}

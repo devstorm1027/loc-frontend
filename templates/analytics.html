@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid" style="">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+        <div class="content">
+					<script src="https://www.google.com/jsapi"></script>
+					<h1 class="hidden-print">Analytics</h1>
+					<div class="row hidden-print">
+						<div class="col-md-9">
+							<div class="alert alert-warning">
+								<a class="close" title="Clear Filter" rel="nofollow" data-method="delete" href="/reviews_filter?return_url=%2Fanalytics%2Flocations%2F26108">×</a>
+								<div class="row">
+									<div class="col-xs-2">
+										<a href="/reviews_filter/edit?return_url=%2Fanalytics%2Flocations%2F26108"><i class="glyphicon glyphicon-filter"></i> Edit Filter</a>
+									</div>
+									<div class="col-xs-8">
+										<small>Filtered by 1 location, no rating, 1, 2, 3, 4, and 5 stars, no status, none, pending, and closed, Citysearch, Facebook, Foursquare, Google, Kudzu, Superpages, Yahoo, Yellowpages, and Yelp</small>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<form class="form-inline form-date-range-picker" action="/analytics/locations/26108" accept-charset="UTF-8" method="get">
+								<input name="utf8" type="hidden" value="✓">
+								<input type="hidden" name="id" id="id" value="26108">
+								<div class="form-group">
+									<div class="input-group input-group-sm input-daterange">
+										<input type="text" name="from" value="2017-01-07" class="form-control no-manual-input" data-behaviour="datepicker" placeholder="Start Date">
+										<span class="input-group-addon">to</span>
+										<input type="text" name="to" value="2017-04-06" class="form-control no-manual-input" data-behaviour="datepicker" placeholder="End Date">
+										<div class="input-group-btn">
+											<input type="submit" value="View" class="btn btn-default btn-sm">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="alert alert-warning visible-print-block">
+						<small>Filtered by 1 location, no rating, 1, 2, 3, 4, and 5 stars, no status, none, pending, and closed, Citysearch, Facebook, Foursquare, Google, Kudzu, Superpages, Yahoo, Yellowpages, and Yelp</small>
+					</div>
+
+					<style>
+					  .nav-analytics.nav-tabs > li > a { padding: 8px 12px; }
+					</style>
+
+					<ul class="nav nav-tabs hidden-print nav-analytics" id="anaytics-nav-body"></ul>
+					<span id='review-name'></span>
+					
+					<div class="row" id="headrow">
+						<div class="col-md-5">
+							<div class="well well-sm">
+								<h6>Total Reviews</h6>
+								<h2 style="font-size: 20px;">
+                  <span id='rating-total-value'></span>&nbsp;
+									<span id='rating-total-range' class="green">
+                  </span>
+								</h2>
+							</div>
+						</div>
+
+						<div class="col-md-5">
+							<div class="well well-sm">
+								<h6>Average Rating</h6>
+								<h2 style="font-size: 20px;">
+									<div class="pull-left" id='single-review'></div>&nbsp;
+									<span id='rating-value'></span>&nbsp;
+									<span class="green" id='rating-range-value'> </span>
+								</h2>
+							</div>
+						</div>
+						
+
+						<!-- <div class="col-md-3">
+							<div class="well well-sm">
+								<h6>
+								Promoter Score
+									<a class="wide-popup popup-marker hidden-print" data-content="Promoter score is the NPS system scaled to a 5 point scale. It represents the percentage of promoters (5 star reviews) minus the percentage of detractors (1, 2 and 3 star reviews)." data-html="true" data-placement="top" data-toggle="popover" title="" data-original-title="<button class=&quot;close close-small&quot; onclick=&quot;$(&amp;quot;.popup-marker&amp;quot;).popover(&amp;quot;hide&amp;quot;);&quot;>&amp;times;</button> Promoter Score">
+										<i class="glyphicon glyphicon-info-sign"></i>
+									</a>
+								</h6>
+
+								<h2 style="font-size: 20px;">50&nbsp;
+									<span class="green">+17</span>
+								</h2>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="well well-sm">
+								<h6>Group Rank</h6>
+								<h2 style="font-size: 20px;">1&nbsp;
+									<span class="text-muted">0</span>
+								</h2>
+							</div>
+						</div>-->
+					</div>
+
+					<h3>Key Graphs</h3>
+					<div class="well well-sm">
+						<div class="row">
+							<div class="col-md-6">
+								<h5>How are you rating over time?</h5>
+								<div id="avg_ratings_line" style="height: 200px;">
+									<div class='canvas-container' style="position: relative;">
+										<div class='chart-container'>
+											<canvas id="rating-over-time" width="300" height="200"></canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<h5>How many reviews are you getting?</h5>
+								<div class='canvas-container' style="position: relative;">
+									<div class='chart-container'>
+										<canvas id="review-count" width="300" height="200"></canvas>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<h5>How are your reviews distributed?</h5>
+								<div class='canvas-container' style="position: relative;">
+									<div class='chart-container'>
+										<canvas id="rating-Dist" width="300" height="200"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<!-- <div class="row">
+						<div class="col-md-6">
+							<div class="well well-sm">
+								<h4>Relative Performance</h4>
+								<div id="relative_performance_scatterplot" style="height: 300px;">
+									
+								</div>
+							</div>
+						</div> -->
+
+						<!-- <div class="col-md-6">
+							<div class="well well-sm">
+								<h4>Where did your reviews happen?</h4>
+								<div data-chart-url="/analytics/graph/directories?from=2017-01-07&amp;location_ids=26108&amp;to=2017-04-06" data-chart-pagination="null" data-chart-unsortable-cols="null" data-full-width="false" style="height: 300px;" id="chart7220435120282762" class="rasterize-ready">
+									<div style="position: relative;">
+										<div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
+											<table>
+												<thead>
+													<tr><th>Directory</th><th>%</th></tr>
+												</thead>
+												<tbody>
+													<tr><td>Facebook</td><td>3</td></tr><tr><td>Yelp</td><td>1</td></tr><tr><td>Kudzu</td><td>0</td></tr><tr><td>Yellowpages</td><td>0</td></tr><tr><td>Yahoo</td><td>0</td></tr><tr><td>Google</td><td>0</td></tr><tr><td>Superpages</td><td>0</td></tr><tr><td>Citysearch</td><td>0</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div aria-hidden="true" style="display: none; position: absolute; top: 310px; left: 496px; white-space: nowrap; font-family: Arial; font-size: 12px;">Yelp
+										</div><div></div>
+									</div>
+								</div>
+							</div>
+						</div> -->
+					<!-- </div> -->
+
+					<h3>Group Comparison</h3>
+					<table class="table table-bordered table-striped comparison_table">
+						<thead>
+							<tr><th></th>
+							<th>Average Rating</th>
+							<th>Count</th>
+							<th>Promoter Score</th>
+							<th>Group Rank</th>
+							</tr>
+						</thead>
+						<tbody id='group-comparsion'></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="js/{{ files['analytics.js']['name'] }}" integrity="{{ files['analytics.js']['hash'] }}"></script>
+  <script src="js/{{ files['httpobs.js']['name'] }}" integrity="{{ files['httpobs.js']['hash'] }}"></script>
+	
+{% endblock %}

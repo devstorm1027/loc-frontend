@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid" style="">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div id="auth-message"></div>
+        <div class="content">
+          <h1 id="listing-name"></h1>
+          <div class="row hidden-print">
+            <div class="col-md-9">
+              <a class="btn btn-link" id='go_home_filter' href="/home_filter.html">
+                <i class="glyphicon glyphicon-filter"></i> Filter
+              </a>
+            </div>
+              <!-- <div class="btn-group review_filter">
+                <a class="btn btn-default btn-sm dropdown-toggle" data-loading-text="Loading..." data-toggle="dropdown" href="#" id="status_btn">
+                All Statuses
+                &nbsp;
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="/locations/26108">All Statuses</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?status=-1">No Status</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?status=0"><i class="glyphicon glyphicon-ban-circle"></i> None</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?status=1"><i class="glyphicon glyphicon-time"></i> Pending</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?status=2"><i class="glyphicon glyphicon-check"></i> Closed</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-group review_filter">
+                <a class="btn btn-default btn-sm dropdown-toggle" data-loading-text="Loading..." data-toggle="dropdown" href="#" id="sites_btn">
+                All Sites
+                &nbsp;
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="/locations/26108">All Sites</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?site_id=5">Yahoo</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?site_id=1">Google</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?site_id=28">Facebook</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?site_id=2">Yellowpages</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?site_id=3">Yelp</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?site_id=6">Citysearch</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?site_id=34">Superpages</a>
+                  </li>
+                  <li>
+                    <a href="/locations/26108?site_id=26">Kudzu</a>
+                  </li>
+                </ul>
+              </div><br><br>
+            </div>
+            <div class="col-md-3">
+              <form class="form-inline form-date-range-picker" action="/locations/26108" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="id" id="id" value="26108">
+                <div class="form-group">
+                  <div class="input-group input-group-sm input-daterange">
+                    <input type="text" name="from" class="form-control no-manual-input" data-behaviour="datepicker" placeholder="Start Date">
+                    <span class="input-group-addon">to</span>
+                    <input type="text" name="to" class="form-control no-manual-input" data-behaviour="datepicker" placeholder="End Date">
+                    <div class="input-group-btn">
+                      <input type="submit" value="View" class="btn btn-default btn-sm">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div> -->
+          <div class="row">
+            <div class="col-md-9">
+              <table class="table">
+                <tbody id='star_num'></tbody>
+                <!-- <tfoot class="hidden-print"> -->
+                  <!-- <tr> -->
+                    <!-- <td id='listingTable'> -->
+                      <!-- <ul class="pagination pagination">
+                        <li class="prev disabled">
+                          <span>← Previous</span>
+                        </li>
+                        <li class="active">
+                        <span>1</span>
+                        </li> 
+                        <li>
+                          <a rel="next" href="/locations/26108?page=2">2</a>
+                        </li> 
+                        <li class="next">
+                          <a rel="next" href="/locations/26108?page=2">Next →</a>
+                        </li>
+                      </ul> -->
+                      <!-- <a href="javascript:prevPage()" id="btn_prev">Prev</a>
+                      <a href="javascript:nextPage()" id="btn_next">Next</a>
+                      page: <span id="page"></span> -->
+                    <!-- </td> -->
+                  <!-- </tr> -->
+                <!-- </tfoot> -->
+              </table>
+            </div>
+            <div class="col-md-3">
+              <div class="well">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Locations</th>
+                    </tr>
+                  </thead>
+                  <tbody id='home-dataBody'></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="js/{{ files['home.js']['name'] }}" integrity="{{ files['home.js']['hash'] }}"></script>
+  <script src="js/{{ files['httpobs.js']['name'] }}" integrity="{{ files['httpobs.js']['hash'] }}"></script>
+
+{% endblock %}

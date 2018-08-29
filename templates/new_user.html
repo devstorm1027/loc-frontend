@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container block-center mt-xl">
+  <!-- START panel-->
+    <div class="row">
+      <div id="signUp-error"> </div>
+        <div class="panel panel-dark panel-flat">
+          <div class="panel-body">
+            <div class="col-md-6 col-md-offset-3">
+              <h1>New User</h1>
+              <form role='form'>
+                <div class="form-group has-feedback">
+                  <label class="text-muted">Email address</label>
+                  <input class="form-control" type="email" id="contact_email" name="email" placeholder="Enter email" autocomplete="off">
+                  <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                  <span class="error" id='email-blank'>This field is required</span>
+                  <span class="error" id='email-valid'>This field must be a valid email address</span>
+                </div>
+                <div class="form-group has-feedback">
+                  <label class="text-muted">Password</label>
+                  <input class="form-control" id="contact_password" type="password" name="password">
+                  <span class="fa fa-lock form-control-feedback text-muted"></span>
+                  <span class="error" id='password-blank'>This field is required</span>
+                  <span class="error" id='password-valid'>Password should at least 6 character in length</span>
+                  </div>
+                  <div class="form-group has-feedback">
+                  <label class="text-muted">Retype Password</label>
+                  <input class="form-control" type="password" name="password_confirm" id="confirm-password" />
+                  <span class="fa fa-lock form-control-feedback text-muted"></span>
+                  <span class="error" id='confirm-password-blank'>This field is required</span>
+                  <span class="error" id='confirm-password-valid'>Password does Not match</span>
+                </div>
+                <div class="form-group" id="admin-user-check">
+                  <label class="checkbox-inline admin-user-check" id="admin-panel">
+                    <input type="checkbox" class="admin-check" id="admin-check"> Admin
+                    <span class="error" id='admin-blank'></span>
+                  </label>
+
+                  <label class="checkbox-inline admin-user-check" id="user-panel">
+                    <input type="checkbox" class="user-check" id="user-check"> User
+                    <span class="error" id='user-blank'></span>
+                  </label>
+                </div>
+
+                <button type="button" class="btn btn-default" id="register">Save</button>
+                <a class="btn btn-default" href="/users.html">Back</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="js/{{ files['httpobs.js']['name'] }}" integrity="{{ files['httpobs.js']['hash'] }}"></script>  
+  <script src="js/{{ files['new_user.js']['name'] }}" integrity="{{ files['new_user.js']['hash'] }}"></script>
+
+{% endblock %}

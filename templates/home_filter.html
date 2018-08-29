@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="col-md-10 col-md-offset-1">
+    <div class="content">
+      <h1 id="filtered-title">Adapt Partners</h1>
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#tab-reviews-filter"><i class="glyphicon glyphicon-filter"></i> Filter</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="tab-reviews-filter">
+          <br>
+          <form class="edit_reviews_filter" id="edit_reviews_filter_3384" action="/reviews_filter" accept-charset="UTF-8" method="post">
+            <input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="_method" value="patch">
+            <input type="hidden" name="authenticity_token" value="yI8GpoAZ1LpOfiK/7CBnGYk5Tm+6ileoPE9evBh0z3aeDXzRVWTCN27ZNBDYqejxCCO2NUCmn9VjnWWVSGqfig==">
+            <input name="commit" value="Save" id="rating-save" class="btn btn-primary filter-save-button">
+            <a class="btn btn-default" id='rating-cancel'>Cancel</a>
+            <br><br>
+            <input type="hidden" name="return_url" id="return_url" value="/groups/6580">
+            <input type="hidden" name="reviews_filter[ratings][]" id="reviews_filter_ratings_">
+            <div class="panel panel-default panel-check-uncheck" id="panel-check-uncheck-ratings">
+              <div class="panel-heading">
+                <h3 class="panel-title">Ratings
+                  <small>
+                    <a id='rating-select' href="" >Select All</a>
+                    <a id='rating-clear' href="">Clear All</a>
+                  </small>
+                </h3>
+              </div>
+              <div class="panel-body">
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="rating-checkbox" id="reviews_filter_ratings_1" value="1">1 star reviews
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="rating-checkbox" id="reviews_filter_ratings_2" value="2">2 star reviews
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="rating-checkbox" id="reviews_filter_ratings_3" value="3">3 star reviews
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="rating-checkbox" id="reviews_filter_ratings_4" value="4">4 star reviews
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="rating-checkbox" id="reviews_filter_ratings_5" value="5">5 star reviews
+                </label>
+              </div>
+            </div>
+            
+            <input type="hidden" name="reviews_filter[fast_save_habtm_location_ids][]" id="reviews_filter_fast_save_habtm_location_ids_">
+            <div class="panel panel-default panel-check-uncheck" id="panel-check-uncheck-locations">
+              <div class="panel-heading">
+                <h3 class="panel-title">Locations
+                  <small>
+                    <a id='location-select' href="" >Select All</a>
+                    <a id='location-clear' href="" >Clear All</a>
+                  </small>
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6" id='listing-name'></div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <input name="commit" value="Save" id="location-save" class="btn btn-primary filter-save-button">
+            <a class="btn btn-default" id='location-cancel'>Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="js/{{ files['home.js']['name'] }}" integrity="{{ files['home.js']['hash'] }}"></script>
+  <script src="js/{{ files['httpobs.js']['name'] }}" integrity="{{ files['httpobs.js']['hash'] }}"></script>
+  <script src="js/{{ files['home_filter.js']['name'] }}" integrity="{{ files['home_filter.js']['hash'] }}"></script>
+{% endblock %}

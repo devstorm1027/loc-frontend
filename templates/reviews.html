@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid" style="">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <div class="content">
+          <ul class="breadcrumb hidden-print" id='detail-listing'>
+          </ul>
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table">
+                <tbody id='star_num'></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="js/{{ files['reviews.js']['name'] }}" integrity="{{ files['reviews.js']['hash'] }}"></script>
+  <script src="js/{{ files['httpobs.js']['name'] }}" integrity="{{ files['httpobs.js']['hash'] }}"></script>
+{% endblock%}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid" style="">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <div class="content">
+          <h1>Users</h1>
+          <div class="row">
+            <div class="col-md-9">
+              <p>Users have login access to Reputology. To configure email alerts, see the
+                <a href="/alerts">email alerts tab.</a>
+              </p>
+            </div>
+            <div class="col-md-3">
+              <form action="/users" accept-charset="UTF-8" method="get">
+                <input name="utf8" type="hidden" value="✓">
+                <div class="form-group">
+                  <div class="input-group input-group-sm">
+                    <input type="text" name="q" id="q" class="form-control">
+                    <div class="input-group-btn input-group-sm">
+                      <input type="submit" name="commit" value="Filter" class="btn btn-default">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table users_table">
+              <thead>
+                <tr>
+                  <th class="clearfix ">
+                    <a style="color: inherit; text-decoration: none; margin-right: 5px;" href="">Email&nbsp;<i class="glyphicon glyphicon-chevron-up"></i>
+                    </a>
+                  </th>
+                  <th class="clearfix ">
+                    <a style="color: inherit; text-decoration: none; margin-right: 5px;" href="">User type&nbsp;<i class="glyphicon glyphicon-sort hidden-print"></i>
+                    </a>
+                  </th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody id="user-info"></tbody>
+            </table>
+          </div><br>
+          <a class="btn btn-default" id='new-user' href="/new_user.html">
+          Add Another User</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="js/{{ files['httpobs.js']['name'] }}" integrity="{{ files['httpobs.js']['hash'] }}"></script>
+  <script src="js/{{ files['users.js']['name'] }}" integrity="{{ files['users.js']['hash'] }}"></script>
+  
+{% endblock %}
